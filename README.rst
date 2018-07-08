@@ -1,5 +1,6 @@
 Django Impersonate Auth
 =======================
+|build| |coverage| |contributors| |license|
 
 Django Impersonate Auth is a simple drop in authentication backend that allows
 superusers to impersonate regular users in the system.
@@ -116,3 +117,31 @@ only triggered if the login would have been a success with the correct login.
 That is, they are not triggered if the user you are trying to impersonate does
 not exist or would not be available for some other reason (e.g. they are
 inactive).
+
+Credits
+-------
+Thanks to Daniele Faraglia <https://github.com/joke2k> and the django-environ
+project <https://github.com/joke2k/django-environ>. Both my .travis.yml file
+and this readme were partially modeled on the respective files from that
+project.
+
+.. |coverage| image:: https://img.shields.io/coveralls/JordanReiter/django-impersonate-auth/master.svg?style=flat-square
+    :target: https://coveralls.io/r/JordanReiter/django-impersonate-auth?branch=master
+    :alt: Test coverage
+
+.. |build| image:: https://travis-ci.org/JordanReiter/django-impersonate-auth.svg?branch=master
+    :target: https://travis-ci.org/JordanReiter/django-impersonate-auth
+
+.. |windows_build|  image:: https://img.shields.io/appveyor/ci/JordanReiter/django-impersonate-auth.svg?style=flat-square&logo=windows
+    :target: https://ci.appveyor.com/project/JordanReiter/django-impersonate-auth
+    :alt: Build status of the master branch on Windows
+
+
+.. |contributors| image:: https://img.shields.io/github/contributors/JordanReiter/django-impersonate-auth.svg?style=flat-square
+    :target: https://github.com/JordanReiter/django-impersonate-auth/graphs/contributors
+
+.. |license| image:: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
+    :target: https://raw.githubusercontent.com/JordanReiter/django-impersonate-auth/master/LICENSE
+    :alt: Package license
+
+.. _`the repository`: https://github.com/JordanReiter/django-impersonate-auth
