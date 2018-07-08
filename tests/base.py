@@ -1,5 +1,9 @@
 import uuid
-from unittest.mock import patch
+
+try:
+    from unittest.mock import patch
+except ImportError:
+    from mock import patch
 
 from django.conf import settings
 from django.contrib.auth import authenticate, get_user_model
