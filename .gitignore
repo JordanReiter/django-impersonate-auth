@@ -1,0 +1,11 @@
+.pydevproject
+.project
+.coverage
+.pytest_cache
+pip-selfcheck.json
+bin
+include
+*pyc
+lib
+*,cover
+*.egg-info
