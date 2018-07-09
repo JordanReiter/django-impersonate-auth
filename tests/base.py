@@ -103,6 +103,18 @@ class BaseImpersonationBackendTest:
         self.assertEqual(logged_in_user.backend, self.impersonation_backend)
         self.assertFalse(logged_in_user.is_superuser)
 
+    def test_impersonation_login_password_contains_sep(self):
+        new_pw = self.superuser_pw[:4] + NORMAL_SEP + self.superuser_pw[4:]
+        self.superuser.set_password(new_pw)
+        self.superuser.save()
+        impersonate_pw = '{}{}{}'.format(
+            self.superuser_name, NORMAL_SEP, new_pw
+        )
+        success = self.login(username=self.user_name, password=impersonate_pw)
+        self.assertTrue(success)
+        logged_in_user = authenticate(username=self.user_name, password=impersonate_pw)
+        self.assertEqual(logged_in_user, self.user)
+
     def test_impersonation_wrong_password(self):
         impersonate_pw = '{}{}{}'.format(
             self.superuser_name, NORMAL_SEP, 'WRONG-PASSWORD'

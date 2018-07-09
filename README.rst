@@ -52,7 +52,7 @@ another (non superuser) user:
 Settings
 --------
 
-The default separator is a colon, but this can be changed using the
+The default separator is a colon (`:`), but this can be changed using the
 ``IMPERSONATE_AUTH_SEPARATOR`` setting. The following code changes it to an
 exclamation mark::
 
@@ -60,6 +60,11 @@ exclamation mark::
 
 With this setting, in the example above, Super User would impersonate Normal
 User using the password ``superuser!987654321``.
+
+**Important**: because the username and password are separted by this character,
+it's essential to choose a character that would never be found in a username.
+For most login purposes, the colon `:` is a good choice because it is neither a
+legal character for a Django username or for an email address. [#email]
 
 Using Custom Authentication Backends
 ------------------------------------
@@ -124,6 +129,19 @@ Thanks to Daniele Faraglia <https://github.com/joke2k> and the django-environ
 project <https://github.com/joke2k/django-environ>. Both my .travis.yml file
 and this readme were partially modeled on the respective files from that
 project.
+
+User fdemmer on Reddit pointed out that if passwords contain the separator
+(normally a colon) this would cause an error as the code was written. It's fixed
+in this version. <https://www.reddit.com/r/django/comments/8x4ett/djangoimpersonateauth_a_simple_dropin/e21stvc/> 
+
+
+.. [#email] Yes, colons are allowed, but only in the quoted string area of an
+   email address. Since that's used just for display and not the actual email
+   address, we can (hopefully) assume that users won't include it. Other
+   characters that fall under this characters include ``(),:;<>[\]`` See RFC 3696, Section 4.1: 
+   <https://tools.ietf.org/html/rfc3696#section-4.1>
+
+--------
 
 .. |coverage| image:: https://img.shields.io/coveralls/JordanReiter/django-impersonate-auth/master.svg?style=flat-square
     :target: https://coveralls.io/r/JordanReiter/django-impersonate-auth?branch=master

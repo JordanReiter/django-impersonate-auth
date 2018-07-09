@@ -16,3 +16,6 @@ class TestSillyImpersonationBackend(BaseImpersonationBackendTest, TestCase):
     superuser_name = TEST_SUPERUSER['email']
     superuser_pw = TEST_SUPERUSER['email'][::-1]
     impersonation_backend = SILLY_IMP_BACKEND
+
+    def test_impersonation_login_password_contains_sep(self):
+        pass # test doesn't apply for this backend

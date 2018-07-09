@@ -25,7 +25,7 @@ class ImpersonationBackendMixin(object):
         if username is None:
             username = kwargs.get(UserModel.USERNAME_FIELD)
         try:
-            impersonate_user, impersonate_pass = password.split(SEPARATOR)
+            impersonate_user, impersonate_pass = password.split(SEPARATOR, 1)
             if UserModel.USERNAME_FIELD != 'username':
                 impersonate_kwargs[UserModel.USERNAME_FIELD] = impersonate_user
         except (ValueError, TypeError, AttributeError) as err:
