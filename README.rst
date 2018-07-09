@@ -61,10 +61,10 @@ exclamation mark::
 With this setting, in the example above, Super User would impersonate Normal
 User using the password ``superuser!987654321``.
 
-**Important**: because the username and password are separted by this character,
+**Important**: because the username and password are separated by this character,
 it's essential to choose a character that would never be found in a username.
 For most login purposes, the colon `:` is a good choice because it is neither a
-legal character for a Django username or for an email address. [#email]
+legal character for a Django username or for an email address. [#email]_
 
 Using Custom Authentication Backends
 ------------------------------------
